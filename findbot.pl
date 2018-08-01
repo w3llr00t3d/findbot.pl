@@ -161,15 +161,16 @@ sub recursion {
 
 	my $type = `$file $cf`;
 
-	if ($type =~ /(ELF|\d\d-bit).*executable/ || $currentfile =~ /\.(exe|scr|com)$/) {
+	# Commented out as this is basically useless and slow
+	#	if ($type =~ /(ELF|\d\d-bit).*executable/ || $currentfile =~ /\.(exe|scr|com)$/) {
 #print STDERR "cf: $cf\n";
-	    my $checksum = `$md5sum $cf`;
-	    chomp($checksum);
-	    $checksum =~ s/\s.*//;
-	    if ($badhash{$checksum}) {
-		print STDERR "$currentfile: Malware detected!\n";
-		next;
-	    }
+	#	    my $checksum = `$md5sum $cf`;
+	#	    chomp($checksum);
+	#	    $checksum =~ s/\s.*//;
+	#	    if ($badhash{$checksum}) {
+	#		print STDERR "$currentfile: Malware detected!\n";
+	#		next;
+	#	    }
 
 	    my $strings = `$strings $cf`;
 	    if ($strings =~ /\/usr\/bin\/perl/sm) {
@@ -178,7 +179,7 @@ sub recursion {
 	    }
 	}
     }
-}
+    #}
 
 sub scanfile {
     my ($currentfile, $patterns) = @_;
