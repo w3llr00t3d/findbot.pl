@@ -88,7 +88,7 @@ my $scriptpat = '(Edited By GuN-Jack|die\(PHP_OS.chr\(49\).chr\(48\).chr\(43\).m
 #The following were removed from the scriptpat variable above for being too noisy:
 #r57|c99|hacker|Hacker|1\.sh
 
-my @defaultdirs = ('/tmp', '/usr/tmp', '/home', '/var/www');
+my @defaultdirs = ('/var/tmp', '/tmp', '/usr/tmp', '/home', '/var/www');
 
 my $MAXLINES = 40000;
 
